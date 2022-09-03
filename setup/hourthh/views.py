@@ -17,12 +17,11 @@ def struct_data(request):
           init_date = ""
      if not finish_date:
           finish_date = ""
-        
+     
      response = []
      df_filtrado = df.copy()
 
      if (init_date != "" and finish_date != ""):
-          print(init_date, finish_date)
           df['consult_date'] = pd.to_datetime(df['consult_date'], format='%Y-%m-%d')
           filtro = (df['consult_date'] >= init_date) & (df['consult_date'] <= finish_date)
           if np.count_nonzero(filtro) > 0:
